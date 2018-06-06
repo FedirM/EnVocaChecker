@@ -1,0 +1,41 @@
+<div class="row" style="text-align: center; margin:auto;">
+    <button class="btn btn-outline-secondary" style="margin-right: 8px; font-size: 1.3em;" *ngFor="let ch of alphabet" (click)="letterOnClick(ch)">
+      {{ ch.toUpperCase() }}
+    </button>
+</div>
+<div class="row">
+    <div class="col-3">
+        <div class="card" style="margin-top: 10px;padding: 4px;">
+            <div>
+                <input type="text" class="form-control" placeholder="Search" (keyup)="search($event)" style="width: 100%;" />
+            </div>
+            <hr/>
+            <div class="scroll-area">
+                <div *ngFor="let obj of showData" (click)="wordOnClick(obj)">
+                    <div class="row">
+                        <span style="width: 10%">&nbsp;</span>
+                        <span style="width: 45%">{{obj.en}}</span>
+                        <span style="width: 45%">{{obj.tr}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-9">
+        <div class="card" style="margin-top: 10px;padding: 4px;" *ngIf="showCard">
+            <div>
+                <!-- <class="card-header"> -->
+                <div class="row" style="margin-left: 10px;">
+                    <label style="font-size: 1.4em;"><strong>{{ currObj.en + "["+currObj.tr+"]" }}</strong></label>
+                </div>
+            </div>
+            <hr/>
+            <div class="scroll-area ">
+                <div *ngIf="matchAnswer" class="btn-primary" style="text-align: center;border-radius:8px; ">{{ matchAnswer }}</div> <br/>
+                <div class="card-body" sytle="padding: 8px;" *ngIf="showTranslate">
+                    <div class="row" *ngFor="let trStr of translateData">{{trStr}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
