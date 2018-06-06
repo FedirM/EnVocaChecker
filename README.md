@@ -2,6 +2,8 @@
 
 One's English vocabulary checker.
 
+![Angular 5 Voca Checker](https://github.com/FedirM/EnVocaChecker/blob/master/screeshot.png)
+
 ## Workflow
 
 A student review his/her vocabulary and marks words he/she already knows.
